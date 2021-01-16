@@ -90,11 +90,9 @@ export class CheckoutComponent implements OnInit {
     // populate credit card months
 
     const startMonth: number = new Date().getMonth() + 1;
-    console.log("startMonth: " + startMonth);
 
     this.luv2ShopFormService.getCreditCardMonths(startMonth).subscribe(
       data => {
-        console.log("Retrieved credit card months: " + JSON.stringify(data));
         this.creditCardMonths = data;
       }
     );
@@ -103,7 +101,6 @@ export class CheckoutComponent implements OnInit {
 
     this.luv2ShopFormService.getCreditCardYears().subscribe(
       data => {
-        console.log("Retrieved credit card years: " + JSON.stringify(data));
         this.creditCardYears = data;
       }
     );
@@ -112,7 +109,6 @@ export class CheckoutComponent implements OnInit {
 
     this.luv2ShopFormService.getCountries().subscribe(
       data => {
-        console.log("Retrieved countries: " + JSON.stringify(data));
         this.countries = data;
       }
     );
@@ -175,7 +171,6 @@ export class CheckoutComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log("Handling the submit button");
 
     if (this.checkoutFormGroup.invalid) {
       this.checkoutFormGroup.markAllAsTouched();
@@ -276,7 +271,6 @@ export class CheckoutComponent implements OnInit {
 
     this.luv2ShopFormService.getCreditCardMonths(startMonth).subscribe(
       data => {
-        console.log("Retrieved credit card months: " + JSON.stringify(data));
         this.creditCardMonths = data;
       }
     );
@@ -289,8 +283,6 @@ export class CheckoutComponent implements OnInit {
     const countryCode = formGroup.value.country.code;
     const countryName = formGroup.value.country.name;
 
-    console.log(`${formGroupName} country code: ${countryCode}`);
-    console.log(`${formGroupName} country name: ${countryName}`);
 
     this.luv2ShopFormService.getStates(countryCode).subscribe(
       data => {
